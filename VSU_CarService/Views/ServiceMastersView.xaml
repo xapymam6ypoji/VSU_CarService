@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="VSU_CarService.Views.ServiceMastersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VSU_CarService.Views"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:mvvm="http://prismlibrary.com/"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mvvm:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="650 " d:DesignWidth="1100">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.2*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <DataGrid Grid.Row="0"
+                      Margin="5"                                              
+                      ItemsSource="{Binding ServiceMasters}"                                 
+                      AutoGenerateColumns="False"       
+                      FontSize="14"                 
+                      IsReadOnly="True"                 
+                      CanUserAddRows="False"                                        
+                      CanUserResizeColumns="True"               
+                      SelectionMode="Single"                                             
+                      BorderThickness="2"          
+                      BorderBrush="WhiteSmoke">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding LastName}"              
+                                        Header="Фамилия"                   
+                                        Width="10*"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding FirstName}"  
+                                        Header="Имя"
+                                        Width="10*"/>
+                    <DataGridTextColumn Binding="{Binding MiddleName}"    
+                                        Header="Отчество"
+                                        Width="10*"/>
+                    <DataGridTextColumn Binding="{Binding Orders.Count}"    
+                                        Header="Выполнено"
+                                        Width="8*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <mah:ProgressRing Visibility="{Binding IsLoadServiceMasters, Converter={StaticResource BoolToVis}}"
+                              Grid.Row="0"></mah:ProgressRing>
+            <Canvas Grid.Row="1">
+                <Button Command="{Binding SaveWorkSettingsCommand}" 
+                        Width="45" 
+                        Height="45" Canvas.Left="495" Canvas.Top="10">
+                    <iconPacks:FontAwesome 
+                        Width="30" 
+                        Height="30" 
+                        Kind="MinusSolid"/>
+                </Button>
+                <Button Command="{Binding AddNewMasterCommand}" 
+                        Width="45" 
+                        Height="45" Canvas.Left="545" Canvas.Top="10">
+                    <iconPacks:FontAwesome 
+                        Width="30" 
+                        Height="30" 
+                        Kind="PlusSolid"/>
+                </Button>
+            </Canvas>
+        </Grid>
+
+    </Grid>
+</UserControl>

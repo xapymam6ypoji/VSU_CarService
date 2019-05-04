@@ -1,0 +1,99 @@
+﻿<mah:MetroWindow x:Class="VSU_CarService.Views.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:prism="http://prismlibrary.com/"
+                 xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                 prism:ViewModelLocator.AutoWireViewModel="True"
+                 Height="720" Width="1200">
+    <mah:MetroWindow.Flyouts>
+        <mah:FlyoutsControl>
+            <mah:Flyout x:Name="FlyoutRightLayer0" 
+                        Background="WhiteSmoke" 
+                        Position="Right"></mah:Flyout>
+            <mah:Flyout x:Name="FlyoutRightLayer1" 
+                        Background="WhiteSmoke" 
+                        Position="Right"></mah:Flyout>
+            <mah:Flyout x:Name="FlyoutLeft" 
+                        Background="WhiteSmoke" 
+                        Position="Left"></mah:Flyout>
+        </mah:FlyoutsControl>
+    </mah:MetroWindow.Flyouts>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <ContentControl Grid.Column="1" 
+                        prism:RegionManager.RegionName="ContentRegion" />
+
+        <StackPanel Grid.Column="0">
+            <mah:Tile Background="WhiteSmoke"  
+                      Height="80" 
+                      Margin="0,0,0,0" 
+                      Width="Auto" 
+                      MouseEnter="Tile_MouseEnter" 
+                      MouseLeave="Tile_MouseLeave">
+                <StackPanel Orientation="Vertical">
+                    <iconPacks:PackIconFontAwesome HorizontalAlignment="Center"  
+                                                   Kind="ShoppingCartSolid" 
+                                                   Foreground="Black" 
+                                                   Margin="0,0,0,0"
+                                                   Width="55" Height="55"></iconPacks:PackIconFontAwesome>
+                    <TextBlock Foreground="Black" HorizontalAlignment="Center">Заказы</TextBlock>
+                </StackPanel>
+            </mah:Tile>
+
+            <mah:Tile Background="WhiteSmoke"  
+                      Height="80" 
+                      Margin="0,0,0,0" 
+                      Width="Auto" 
+                      MouseEnter="Tile_MouseEnter" 
+                      MouseLeave="Tile_MouseLeave" 
+                      Command="{Binding ShowWorkTypesViewCommand}">
+                <StackPanel Orientation="Vertical">
+                    <iconPacks:PackIconFontAwesome HorizontalAlignment="Center"  
+                                                   Kind="ClipboardListSolid" 
+                                                   Foreground="Black" 
+                                                   Margin="0,0,0,0"
+                                                   Width="55" Height="55"></iconPacks:PackIconFontAwesome>
+                    <TextBlock Foreground="Black" HorizontalAlignment="Center">Работы</TextBlock>
+                </StackPanel>
+            </mah:Tile>
+
+            <mah:Tile Background="WhiteSmoke"  
+                      Height="80" 
+                      Margin="0,0,0,0" 
+                      Width="Auto" 
+                      MouseEnter="Tile_MouseEnter" 
+                      MouseLeave="Tile_MouseLeave" 
+                      Command="{Binding ShowServiceMastersViewCommand}">
+                <StackPanel Orientation="Vertical">
+                    <iconPacks:PackIconFontAwesome HorizontalAlignment="Center"  
+                                                   Kind="UsersSolid"
+                                                   Foreground="Black" 
+                                                   Margin="0,0,0,0"
+                                                   Width="55" Height="55"></iconPacks:PackIconFontAwesome>
+                    <TextBlock Foreground="Black" HorizontalAlignment="Center">Мастера</TextBlock>
+                </StackPanel>
+            </mah:Tile>
+
+            <mah:Tile Background="WhiteSmoke"  
+                      Height="80" 
+                      Margin="0,0,0,0" 
+                      Width="Auto" 
+                      MouseEnter="Tile_MouseEnter" 
+                      MouseLeave="Tile_MouseLeave">
+                <StackPanel Orientation="Vertical">
+                    <iconPacks:PackIconFontAwesome HorizontalAlignment="Center"  
+                                                   Kind="UserTagSolid" 
+                                                   Foreground="Black" 
+                                                   Margin="0,0,0,0"
+                                                   Width="55" Height="55"></iconPacks:PackIconFontAwesome>
+                    <TextBlock Foreground="Black" HorizontalAlignment="Center">Заказчики</TextBlock>
+                </StackPanel>
+            </mah:Tile>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

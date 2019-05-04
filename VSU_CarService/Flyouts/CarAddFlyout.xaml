@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="VSU_CarService.Flyouts.CarAddFlyout"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VSU_CarService.Flyouts"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" Width="500">
+    <Grid Background="WhiteSmoke">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical">
+            <TextBox x:Name="TbName"
+                     IsReadOnly="False"
+                     HorizontalContentAlignment="Stretch" 
+                     Margin="10,5,10,0"
+                     mah:TextBoxHelper.IsWaitingForData="True"
+                     mah:TextBoxHelper.UseFloatingWatermark="True"
+                     mah:TextBoxHelper.Watermark="Название работы"
+                     mah:TextBoxHelper.WatermarkAlignment="Left" 
+                     TextChanged="Tb_TextChanged">
+            </TextBox>
+            <mah:NumericUpDown x:Name="TbWorkingHours"
+                               Minimum="0.01"
+                               IsReadOnly="False"
+                               HorizontalContentAlignment="Stretch" 
+                               Margin="10,5,10,0"
+                               mah:TextBoxHelper.IsWaitingForData="True"
+                               mah:TextBoxHelper.UseFloatingWatermark="True"
+                               mah:TextBoxHelper.Watermark="Кол-во нормочасов"
+                               mah:TextBoxHelper.WatermarkAlignment="Left"
+                               ValueChanged="Tb_OnValueChanged">
+            </mah:NumericUpDown>
+            <mah:NumericUpDown x:Name="TbPrice"
+                               Minimum="0"
+                               IsReadOnly="False"
+                               HorizontalContentAlignment="Stretch" 
+                               Margin="10,5,10,0"
+                               mah:TextBoxHelper.IsWaitingForData="True"
+                               mah:TextBoxHelper.UseFloatingWatermark="True"
+                               mah:TextBoxHelper.Watermark="Стоимость работы"
+                               mah:TextBoxHelper.WatermarkAlignment="Left"
+                               ValueChanged="Tb_OnValueChanged">
+            </mah:NumericUpDown>
+            <TextBlock Margin="10,5,10,0">Описание работы:</TextBlock>
+            <RichTextBox x:Name="TbDescription" IsReadOnly="False"
+                         HorizontalContentAlignment="Stretch" 
+                         Margin="10,5,10,0"
+                         Height="100"
+                         mah:TextBoxHelper.IsWaitingForData="True"
+                         mah:TextBoxHelper.UseFloatingWatermark="True"
+                         mah:TextBoxHelper.Watermark="Имя"
+                         mah:TextBoxHelper.WatermarkAlignment="Left"
+                         TextChanged="TbDescription_OnTextChanged">
+            </RichTextBox>
+        </StackPanel>
+        <Canvas Grid.Row="1">
+            <Button Click="BtnCancel_Click" Canvas.Left="325" 
+                    Width="80" 
+                    Canvas.Top="23">Отменить</Button>
+            <Button x:Name="BtnAdd" Click="BtnAdd_OnClick" Canvas.Left="410"
+                    Width="80" 
+                    Canvas.Top="23">Добавить</Button>
+        </Canvas>
+    </Grid>
+</UserControl>
