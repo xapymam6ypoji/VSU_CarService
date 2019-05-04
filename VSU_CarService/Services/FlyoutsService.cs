@@ -47,7 +47,7 @@ namespace VSU_CarService.Services
         public async Task<WorkType> ShowAddWorkTypeView()
         {
             var uc = new WorkTypeFlyout(_validation, _repository, _container.HideRightFlyout);
-            await _container.ShowRightFlyout(uc, "Добавление вида работы", true);
+            await _container.ShowRightFlyout(uc, "Добавление вида работы", true,0);
             return uc.NewWorkType;
         }
     }

@@ -27,7 +27,7 @@ namespace VSU_CarService
         }
 
         protected override async void RegisterTypes(IContainerRegistry containerRegistry)
-        {
+      {
             try
             {
                 var db = new CarServiceSqliteRepository();
