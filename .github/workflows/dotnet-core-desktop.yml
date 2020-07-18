@@ -33,16 +33,16 @@ jobs:
         path: VSU_CarService\bin\Release\
         
      # Create the release:  https://github.com/actions/create-release
-    - name: Create release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-      with:
-        tag_name: ${{ github.ref}}
-        release_name:  ${{ github.ref }}
-        draft: false
-        prerelease: false
+    #- name: Create release
+      #id: create_release
+      #uses: actions/create-release@v1
+      #env:
+        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      #with:
+        #tag_name: ${{ github.ref}}
+        #release_name:  ${{ github.ref }}
+        #draft: false
+        #prerelease: false
         
        # Upload release asset:   https://github.com/actions/upload-release-asset
     - name: Update release asset
@@ -51,7 +51,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}  # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        #upload_url: ${{ steps.create_release.outputs.upload_url }}  # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
         asset_path: VSU_CarService\bin\Release\VSU_CarService.zip
         asset_name: VSU_CarService.zip
         asset_content_type: application/zip
