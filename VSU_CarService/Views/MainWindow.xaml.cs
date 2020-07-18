@@ -22,6 +22,7 @@ namespace VSU_CarService.Views
     {
         public MainWindow()
         {
+
             InitializeComponent();
         }
         private void Tile_MouseEnter(object sender, MouseEventArgs e)
